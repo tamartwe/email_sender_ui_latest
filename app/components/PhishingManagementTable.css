@@ -1,0 +1,16 @@
+.phishing-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-header {
+    color: black;
+  }
+  
+  .phishing-table th, .phishing-table td {
+    padding: 8px;
+    border: 1px solid black;
+    background-color: white; /* Set background color to black */
+    color: black; /* Set text color to white */
+    text-align: center; /* Center align text */
+  }

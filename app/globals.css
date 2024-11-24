@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -18,4 +18,23 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: black;
+}
+
+label {
+  display: inline-block;
+  margin-right: 10px;
+  color: black;
+}
+
+input {
+  padding: 5px;
+  color: black; /* Set the input text color to black */
+}
+
+button {
+  color: black; /* Set button text color to black */
 }

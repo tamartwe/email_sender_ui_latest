@@ -5,9 +5,14 @@ const PhishingForm = () => {
 
   const handleSubmit = async () => {
     try {
+      let token;
+      if (typeof window !== "undefined") {
+        token = localStorage.getItem("token");
+      }
       const response = await fetch('http://localhost:3001/phishing-management/send', {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${token}`, // Include Bearer token in the Authorization header
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email: email })

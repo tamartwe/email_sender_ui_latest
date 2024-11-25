@@ -27,7 +27,7 @@ const Login = ({ setLoginSuccess , setJWTToken }) => {
       console.log(data);
       if (response.ok) { // Successful login
         setLoginSuccess(true);
-        setJWTToken(response.access_token);
+        setJWTToken(data.access_token);
       }
     } catch (error) {
       console.error('Error logging in:', error);

@@ -9,17 +9,22 @@ const PhishingManagementTable = () => {
   useEffect(() => {
     const fetchPhishingAttempts = async () => {
       try {
-        
+        let token;
+        if (typeof window !== "undefined") {
+          token = localStorage.getItem("token");
+        }
         const response = await fetch('http://localhost:3001/phishing-management', {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer <PLACEHOKDER_FOR_TOKEN>`, // Include Bearer token in the Authorization header
+            'Authorization': `Bearer ${token}`, // Include Bearer token in the Authorization header
             'Content-Type': 'application/json'
           }
         });
         if (response.ok) {
           const data = await response.json();
-          setPhishingAttempts(data);
+           // Filter out records where attemptId is empty
+          const filteredData = data.filter((attempt) => attempt.attemptId !== '' && attempt.attemptId !== undefined);
+          setPhishingAttempts(filteredData);
         } else {
           console.error('Failed to fetch data');
         }

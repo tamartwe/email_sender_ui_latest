@@ -11,8 +11,11 @@ export default function Page() {
     const router = useRouter()
 
     useEffect(() => {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", token);
+      }
         if (loginSuccess && router && typeof window !== 'undefined') { // Add typeof window check
-          router.push('/main?token=${token}')
+          router.push(`/main`)
         }
     }, [loginSuccess, router, token]) // Remove router from the dependency array
 
